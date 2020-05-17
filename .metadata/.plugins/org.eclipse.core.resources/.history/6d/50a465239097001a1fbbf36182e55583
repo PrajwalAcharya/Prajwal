@@ -1,0 +1,17 @@
+package com.ibm.lwconversion.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.ibm.lwconversion.model.ConversionFact;
+
+@Repository
+public interface ConversionFactRepo extends JpaRepository<ConversionFact,Integer> {
+	
+	//@Query("SELECT CF FROM CONVERSIONFACT CF WHERE CF.CONVERSION_FACTOR = ?1 AND CF.COUNTRY_CODE = ?2",nativeQuery=true)
+	public ConversionFact findByConversionFactrAndCountryCode(Double conversionFactor,String countryCode);
+
+}

@@ -1,0 +1,32 @@
+package com.ibm.lwconversion.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ibm.lwconversion.model.ConversionFact;
+import com.ibm.lwconversion.service.ConversionFactService;
+
+@RestController
+@RequestMapping("/conversionFact")
+public class ConversionFactorController {
+
+	@Autowired
+	ConversionFactService conversionFactService;
+
+	@PostMapping("/addElements/countryCode/{countryCode}/conversionFactor/{conversionFactor}")
+	public ResponseEntity<ConversionFact> addConversionFactor(@PathVariable("countryCode") String countryCode,
+			@PathVariable("conversionFactor") Double conversionFactor) {
+		ConversionFact conversionFact = conversionFactService.addConversionFactor(countryCode, conversionFactor);
+		if (conversionFact.getId() != null) {
+			return new ResponseEntity<ConversionFact>(conversionFact, HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<ConversionFact>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+}

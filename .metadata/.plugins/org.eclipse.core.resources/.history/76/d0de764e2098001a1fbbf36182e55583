@@ -1,0 +1,12 @@
+package com.example.lwcurrencyconvert.service;
+
+public class CurrencyConvertServiceImpl implements CurrencyConvertService {
+
+	@Override
+	public Double convertCurrency(Double amount, Double conversionFactor) {
+		
+		Double convertedAmount = amount*conversionFactor;
+		return convertedAmount;
+	}
+
+}

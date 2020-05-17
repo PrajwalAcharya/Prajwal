@@ -1,0 +1,5 @@
+package com.ibm.lwconversion.model;
+
+public class ConversionFactDTO {
+
+}

@@ -1,0 +1,18 @@
+package com.ibm.lwconversion.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ibm.lwconversion.service.ConversionFactService;
+
+@RestController
+@RequestMapping("/conversionFact")
+public class ConversionFactorController {
+	
+	@Autowired
+	ConversionFactService conversionFactService;
+	
+	
+
+}
